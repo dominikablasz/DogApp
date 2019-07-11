@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Dane statystyczne</title>
+
+    <link rel="stylesheet" href="../Styles/statystyka.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</head>
+<body>
+
+    <p class="napis_1">
+        Poniżej zostały przedstawione wyniki oraz analizy ankiety przeprowadzonej wśród 520 osób, które należą do grup zrzeszających
+        miłośników psów. Większość z nich posiada psy, aż 97,5%. Jednak w mojej analizie zajmę się badaniem poszczególnych ras psów.
+    </p>
+
+    <p class="napis_2">
+        Wśród ankietowanych posiadających psa 10,3% osób stwierdziło, że posiada Husky'ego Syberyjskiego.<br />
+        Średnia wieku psów tej rasy wśród ankietowanych wynosi 4,67 lat, natomiast najstarszy Husky Syberyjski ma 14 lat.<br />
+        Średnia waga psów danej rasy wśród ankietowanych wynosi 24 kg.
+    </p>
+
+    <p class="napis_1">
+        Możesz sprawdzić, jak zmieni się średnia wieku oraz wagi Huskych Syberyjskich, gdy dodasz swojego psa tej rasy:<br />
+    </p>
+
+    <div class="kont_1">
+        <table>
+            <tr>
+                <td class="wiersz">
+                    <form class="formularz">
+                        Wpisz imię swojego psa
+                        <input type="text" id="imie_husky" class="form_imie" />
+                    </form>
+                </td>
+                <td class="wiersz">
+                    <form class="formularz">
+                        Ile lat ma Twój pies?
+                        <input type="number" min="0" max="30" id="wiek_husky" class="form_wiek" /><br />
+                    </form>
+                </td>
+                <td class="wiersz">
+                    <form class="formularz">
+                        Ile waży Twój pies?
+                        <input type="number" min="0" max="100" id="waga_husky" class="form_waga" /><br />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p></p>
+
+    <center><button class="przycisk" onclick="funkcja_1()">Zapisz dane</button></center>
+
+    <p id="srednia_husky" class="sred"></p>
+
+    <p class="napis_1">
+        Jeśli chodzi o płeć Huskych Syberyjskich, w ankiecie nieznacznie przeważają osobnicy płci męskiej.<br />
+        Stanowią oni <b>52%</b> wszystkich badanych psów tej rasy, natomiast osobnicy płci żeńskiej stanowią <b>48% </b>badanych Huskych.<br />
+        Współczynnik maskulinizacji wśród badanej grupy wynosi <b>108</b>, z czego wynika, że na 100 osobników płci żeńskiej przypada 108 osobników płci męskiej danej rasy.
+    </p>
+
+    <p class="napis_2">
+        Biorąc pod uwagę umaszczenie psów analizowanej rasy, możemy zauważyć dużą różnorodność w kolorystyce.
+        Przeważają psy koloru czarno-białego oraz wilczastego, natomiast najmniej liczną grupę stanowią psy o umaszczeniu białym
+        oraz biało-czarno-szarym. Wszystkie uwzględnione kolory wraz z liczebnością psów zostały umieszczone na wykresie kołowym.
+    </p>
+
+    <table>
+        <tr>
+            <th class="opis">
+                Wykres ilustrujący zależność płci wśród Huskych Syberyjskich objętych badaniem
+            </th>
+            <th class="opis">
+                Wykres ilustrujący różnorodność koloru umaszczenia wśród Huskych Syberyjskich objętych badaniem
+        </tr>
+        <tr>
+            <td>
+                <canvas id="wykres_plec" width="120" height="50"></canvas>
+            </td>
+            <td>
+                <canvas id="wykres_kolor" width="120" height="50"></canvas>
+            </td>
+        </tr>
+    </table>
+
+    <p class="napis_1">
+        W ankiecie znalazły się również pytania o częstotliwość spacerów, czy miejsce zamieszkania psa.<br />
+        Z przeprowadzonych badań wynika, że istnieje umiarkowana korelacja pomiędzy miejscem mieszkania psa
+        (mieszkanie/podwórko) a częstotliwością wychodzenia z nim na spacery.<br />
+        Można wywnioskować to z obliczonego współczynnika zbieżności Czuprowa, <br />którego wartość wynosi <b>0,46</b>.
+    </p>
+
+    <p class="napis_2">
+        Poniższy wykres przedstawia częstotliwość wyprowadzania na spacery psów rasy Husky Syberyjski,
+        zbadaną na podstawie wyników ankiety
+    </p>
+    <canvas id="wykres_spacer" width="120" height="50" class="wyk_spac"></canvas>
+
+    <p class="napis_1">
+        Poniższy wykres przedstawia analizę ankiety pod względem miejsca mieszkania psów rasy Husky Syberyjski.
+        82,7% posiadaczy psów danej rasy stwierdziło, że ich zwierzę mieszka w mieszkaniu/domu, natomiast 17,3%, że ich pies
+        mieszka na podwórku/na zewnątrz
+    </p>
+
+
+    <canvas id="wykres_mieszkanie" width="120" height="50"></canvas>
+
+    <p class="napis_2">
+        Jednym z zagadnień, które zostały poruszone w ankiecie była tolerancja wobec innych zwierząt.<br />
+        Według badań i analiz wynika, że istnieje dosyć niska korelacja pomiędzy posiadaniem psa rasy Husky Syberyjski a
+        jego tolerancją wobec innych zwierząt.<br />
+        Obliczony współczynnik zbieżności Czuprowa wynosi 0,3.
+    </p>
+
+    <p class="napis_1">
+        Wykres ilustrujący odpowiedzi na pytanie "Czy Twój pies toleruje inne zwierzęta?"
+    </p>
+
+    <canvas id="wykres_tolerancja" width="120" height="50" class="wyk_tol"></canvas>
+
+    <p class="napis_2">
+        Wykres ilustrujący odpowiedzi na pytanie
+        "Czy oprócz psa posiadasz inne zwierzę?"
+    </p>
+
+    <canvas id="wykres_posiadanie" width="120" height="50"></canvas>
+
+    <script>
+
+        var wyk = document.getElementById("wykres_plec").getContext('2d');
+        var wykres_plec = new Chart(wyk, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        27, 25
+                    ],
+                    backgroundColor: [
+                        'yellow',
+                        'pink'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'Płeć męska',
+                    'Płeć żeńska'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        var wyk_2 = document.getElementById("wykres_kolor").getContext('2d');
+        var wykres_kolor = new Chart(wyk_2, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        12, 8, 7, 7, 4, 4, 4, 3, 3
+                    ],
+                    backgroundColor: [
+                        'orange',
+                        'blue',
+                        'green',
+                        'yellow',
+                        'purple',
+                        'red',
+                        'grey',
+                        'pink',
+                        'black'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'Czarno-biały',
+                    'Wilczasty',
+                    'Srebrno-biały',
+                    'Szary',
+                    'Srebrny',
+                    'Rudy',
+                    'Biało-rudy',
+                    'Biało-czarno-szary',
+                    'Biały'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        var wyk_3 = document.getElementById("wykres_spacer").getContext('2d');
+        var wykres_spacer = new Chart(wyk_3, {
+            type: 'bar',
+            data: {
+                labels: ['kilka razy dziennie', 'raz dziennie', 'kilka razy w tygodniu', 'raz w tygodniu',
+                    'rzadziej niż raz w tygodniu', 'nie wyprowadzam'],
+                datasets: [
+                    {
+                        data: [39, 4, 6, 1, 1, 1],
+                        backgroundColor: [
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6'
+                        ]
+                    }
+                ]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Liczba odpowiedzi'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+                    }]
+                }
+            }
+        });
+
+        var wyk_4 = document.getElementById("wykres_mieszkanie").getContext('2d');
+        var wykres_mieszkanie = new Chart(wyk_4, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        43, 9
+                    ],
+                    backgroundColor: [
+                        'orange',
+                        'pink'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'Mieszkanie/dom',
+                    'Podwórko/na zewnątrz'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        var wyk_5 = document.getElementById("wykres_tolerancja").getContext('2d');
+        var wykres_tolerancja = new Chart(wyk_5, {
+            type: 'bar',
+            data: {
+                labels: ['tak', 'raczej tak', 'raczej nie', 'nie'],
+                datasets: [
+                    {
+                        data: [24, 21, 5, 2],
+                        backgroundColor: [
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6'
+                        ]
+                    }
+                ]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Liczba odpowiedzi'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+                    }]
+                }
+            }
+        });
+
+        var wyk_6 = document.getElementById("wykres_posiadanie").getContext('2d');
+        var wykres_posiadanie = new Chart(wyk_6, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        34, 18
+                    ],
+                    backgroundColor: [
+                        'orange',
+                        'pink'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'tak',
+                    'nie'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        function funkcja_1() {
+            var name = document.getElementById("imie_husky").value;
+            var wiek = document.getElementById("wiek_husky").value;
+            var waga = document.getElementById("waga_husky").value;
+            var srednia_wieku_nieza = ((4.67 * 52) - (-wiek)) / 52;
+            var srednia_waga_nieza = ((24 * 52) - (-waga)) / 52;
+            var srednia_wieku = srednia_wieku_nieza.toFixed(2);
+            var srednia_waga = srednia_waga_nieza.toFixed(2);
+            if (name == "" || wiek == "" || waga == "") {
+                null;
+            }
+            else {
+                document.getElementById("srednia_husky").innerHTML = "Po uwzględnieniu Twojego psa o imieniu " + name + ", w wieku " + wiek +
+                    " lat oraz wadze " + waga + " kg, średnia wieku psów rasy Husky Syberyjski wyniesie " + srednia_wieku +
+                    " lat, natomiast średnia waga wyniesie " + srednia_waga + " kg.";
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

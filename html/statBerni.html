@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Dane statystyczne</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../Styles/statystyka.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</head>
+<body>
+
+    <p class="napis_1">
+        Poniżej zostały przedstawione wyniki oraz analizy ankiety przeprowadzonej wśród 520 osób, które należą do grup zrzeszających
+        miłośników psów. Większość z nich posiada psy, aż 97,5%. Jednak w mojej analizie zajmę się badaniem poszczególnych ras psów.
+    </p>
+
+    <p class="napis_2">
+        Wśród ankietowanych posiadających psa 6,9% osób stwierdziło, że posiada Berneńskiego Psa Pasterskiego.<br />
+        Średnia wieku psów tej rasy wśród ankietowanych wynosi 2,77 lat, natomiast najstarszy Berneński Pies Pasterski ma 9 lat.<br />
+        Średnia waga psów danej rasy wśród ankietowanych wynosi 49 kg.
+    </p>
+
+    <p class="napis_1">
+        Możesz sprawdzić, jak zmieni się średnia wieku oraz wagi Berneńskich Psów Pasterskich, gdy dodasz swojego psa tej rasy:<br />
+    </p>
+
+    <div class="kont_1">
+        <table>
+            <tr>
+                <td class="wiersz">
+                    <form class="formularz">
+                        Wpisz imię swojego psa
+                        <input type="text" id="imie_berni" class="form_imie" />
+                    </form>
+                </td>
+                <td class="wiersz">
+                    <form class="formularz">
+                        Ile lat ma Twój pies?
+                        <input type="number" min="0" max="30" id="wiek_berni" class="form_wiek" /><br />
+                    </form>
+                </td>
+                <td class="wiersz">
+                    <form class="formularz">
+                        Ile waży Twój pies?
+                        <input type="number" min="0" max="100" id="waga_berni" class="form_waga" /><br />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p></p>
+
+    <center><button class="przycisk" onclick="funkcja_1()">Zapisz dane</button></center>
+
+    <p id="srednia_berni" class="sred"></p>
+
+    <p class="napis_1">
+        Jeśli chodzi o płeć Berneńskich Psów Pasterskich, w ankiecie przeważają osobnicy płci męskiej.<br />
+        Stanowią oni <b>57%</b> wszystkich badanych psów tej rasy, natomiast osobnicy płci żeńskiej stanowią <b>43% </b>badanych Berneńczyków.<br />
+        Współczynnik maskulinizacji wśród badanej grupy wynosi <b>133</b>, z czego wynika, że na 100 osobników płci żeńskiej przypada 133 osobników płci męskiej danej rasy.
+    </p>
+
+    <p class="napis_2">
+        Biorąc pod uwagę umaszczenie psów analizowanej rasy, zdecydowana większość posiada standardowe umaszczenie
+        dla tej rasy - biało-czarno-brązowe (tricolor). Jedynie 5,7% ankietowanych stwierdziło, że ich Berneński Pies Pasterski
+        posiada szatę koloru czarnego.
+    </p>
+
+    <table>
+        <tr>
+            <th class="opis">
+                Wykres ilustrujący zależność płci wśród Berneńskich Psów Pasterskich objętych badaniem
+            </th>
+            <th class="opis">
+                Wykres ilustrujący różnorodność koloru umaszczenia wśród Berneńskich Psów Pasterskich objętych badaniem
+        </tr>
+        <tr>
+            <td>
+                <canvas id="wykres_plec" width="120" height="50"></canvas>
+            </td>
+            <td>
+                <canvas id="wykres_kolor" width="120" height="50"></canvas>
+            </td>
+        </tr>
+    </table>
+
+    <p class="napis_1">
+        W ankiecie znalazły się również pytania o częstotliwość spacerów, czy miejsce zamieszkania psa.<br />
+        Z przeprowadzonych badań wynika, że istnieje umiarkowana korelacja pomiędzy miejscem mieszkania psa
+        (mieszkanie/podwórko) a częstotliwością wychodzenia z nim na spacery.<br />
+        Można wywynioskować to z obliczonego współczynnika zbieżności Czuprowa, <br />którego wartość wynosi <b>0,63</b>.
+    </p>
+
+    <p class="napis_2">
+        Poniższy wykres przedstawia częstotliwość wyprowadzania na spacery psów rasy Berneński Pies Pasterski,
+        zbadaną na podstawie wyników ankiety
+    </p>
+    <canvas id="wykres_spacer" width="120" height="50" class="wyk_spac"></canvas>
+
+    <p class="napis_1">
+        Poniższy wykres przedstawia analizę ankiety pod względem miejsca mieszkania psów rasy Berneński Pies Pasterski.
+        74,3% posiadaczy psów danej rasy stwierdziło, że ich zwierzę mieszka w mieszkaniu/domu, natomiast 25,7%, że ich pies
+        mieszka na podwórku/na zewnątrz
+    </p>
+
+
+    <canvas id="wykres_mieszkanie" width="120" height="50"></canvas>
+
+    <p class="napis_2">
+        Jednym z zagadnień, które zostały poruszone w ankiecie była tolerancja wobec innych zwierząt.<br />
+        Zdecydowana większość posiadaczy psów rasy Berneński Pies Pasterski uważa, że ich pies jest tolerancyjny 
+        wobec innych zwierząt - 68,6%, lub raczej tolerancyjny - 14,3%.<br />
+    </p>
+
+    <p class="napis_1">
+        Wykres ilustrujący odpowiedzi na pytanie "Czy Twój pies toleruje inne zwierzęta?"
+    </p>
+
+    <canvas id="wykres_tolerancja" width="120" height="50" class="wyk_tol"></canvas>
+
+    <p class="napis_2">
+        Wykres ilustrujący odpowiedzi na pytanie
+        "Czy oprócz psa posiadasz inne zwierzę?"
+    </p>
+
+    <canvas id="wykres_posiadanie" width="120" height="50"></canvas>
+
+    <script>
+
+        var wyk = document.getElementById("wykres_plec").getContext('2d');
+        var wykres_plec = new Chart(wyk, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        20, 15
+                    ],
+                    backgroundColor: [
+                        'yellow',
+                        'pink'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'Płeć męska',
+                    'Płeć żeńska'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        var wyk_2 = document.getElementById("wykres_kolor").getContext('2d');
+        var wykres_kolor = new Chart(wyk_2, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        33, 2
+                    ],
+                    backgroundColor: [
+                        'blue',
+                        'yellow'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'tricolor',
+                    'czarny'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        var wyk_3 = document.getElementById("wykres_spacer").getContext('2d');
+        var wykres_spacer = new Chart(wyk_3, {
+            type: 'bar',
+            data: {
+                labels: ['kilka razy dziennie', 'raz dziennie', 'kilka razy w tygodniu', 'raz w tygodniu',
+                    'rzadziej niż raz w tygodniu', 'nie wyprowadzam'],
+                datasets: [
+                    {
+                        data: [22, 2, 3, 2, 4, 2],
+                        backgroundColor: [
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6'
+                        ]
+                    }
+                ]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Liczba odpowiedzi'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+                    }]
+                }
+            }
+        });
+
+        var wyk_4 = document.getElementById("wykres_mieszkanie").getContext('2d');
+        var wykres_mieszkanie = new Chart(wyk_4, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        26, 9
+                    ],
+                    backgroundColor: [
+                        'orange',
+                        'pink'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'Mieszkanie/dom',
+                    'Podwórko/na zewnątrz'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        var wyk_5 = document.getElementById("wykres_tolerancja").getContext('2d');
+        var wykres_tolerancja = new Chart(wyk_5, {
+            type: 'bar',
+            data: {
+                labels: ['tak', 'raczej tak', 'raczej nie', 'nie'],
+                datasets: [
+                    {
+                        data: [24, 5, 5, 1],
+                        backgroundColor: [
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6',
+                            '#80ced6'
+                        ]
+                    }
+                ]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Liczba odpowiedzi'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+                    }]
+                }
+            }
+        });
+
+        var wyk_6 = document.getElementById("wykres_posiadanie").getContext('2d');
+        var wykres_posiadanie = new Chart(wyk_6, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        22, 13
+                    ],
+                    backgroundColor: [
+                        'orange',
+                        'pink'
+                    ],
+                    label: 'Dataset'
+                }],
+                labels: [
+                    'tak',
+                    'nie'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        function funkcja_1() {
+            var name = document.getElementById("imie_berni").value;
+            var wiek = document.getElementById("wiek_berni").value;
+            var waga = document.getElementById("waga_berni").value;
+            var srednia_wieku_nieza = ((2.77 * 35) - (-wiek)) / 35;
+            var srednia_waga_nieza = ((49 * 35) - (-waga)) / 35;
+            var srednia_wieku = srednia_wieku_nieza.toFixed(2);
+            var srednia_waga = srednia_waga_nieza.toFixed(2);
+            if (name == "" || wiek == "" || waga == "") {
+                null;
+            }
+            else {
+                document.getElementById("srednia_berni").innerHTML = "Po uwzględnieniu Twojego psa o imieniu " + name + ", w wieku " + wiek +
+                    " lat oraz wadze " + waga + " kg, średnia wieku psów rasy Berneński Pies Pasterski wyniesie " + srednia_wieku +
+                    " lat, natomiast średnia waga wyniesie " + srednia_waga + " kg.";
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Labrador Retriever</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../Styles/psy.css">
+
+</head>
+<body>
+    <div class="pies">
+        <img src="../Images/Labrador_1.jpg" alt="Labrador" width="150" height="150">
+        <img src="../Images/Labrador_2.jpg" alt="Labrador" width="150" height="150">
+        <img src="../Images/Labrador_3.jpg" alt="Labrador" width="150" height="150">
+    </div>
+
+    <p></p>
+    <center>
+        <div class="przyciski">
+            <button id="waga" onclick="waga()">Prawidłowa waga</button>
+            <button id="opis" onclick="opis()">Opis rasy</button>
+            <button id="stat_Labrador" onclick="stat_Labrador()">Dane Statystyczne</button>
+        </div>
+    </center>
+
+    <script>
+        function waga() {
+            window.open('addLabrador.html', 'Dane', "width = 450, height = 500");
+        }
+
+        function opis() {
+            window.open('opisLabrador.html', 'Opis', "width = 400, height = 450");
+        }
+
+        function stat_Labrador() {
+            window.open('statLabrador.html', 'Wykres', "width = 750, height = 700");
+        }
+
+    </script>
+
+</body>
+
+</html>

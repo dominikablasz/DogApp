@@ -1,0 +1,12 @@
+button {
+    text-align: center;
+    background: #e9a3a3;
+    font-size: 16px;
+}
+
+div.napis {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: justify;
+}

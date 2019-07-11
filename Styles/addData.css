@@ -1,0 +1,49 @@
+p.napis {
+    font-size: larger;
+    color: indigo;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+hr.line {
+    color: indigo;
+}
+
+form {
+    text-align: center;
+}
+
+tr {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+.przyciski {
+    text-align: center;
+}
+
+button {
+    background-color: #d591ed;
+    border-color: #8f62c8;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: dotted;
+    font-size: 12px;
+    font-style: oblique;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+table {
+    border: hidden;
+}
+
+p.dog {
+    color: #9d0929;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}

@@ -1,0 +1,81 @@
+﻿﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Aplikacja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../Aplikacja/Styles/mainWindow.css">
+
+
+</head>
+<body>
+
+    <center><h1>Mój Pies</h1></center>
+
+    <p class="okno">
+        <b>
+            Witaj w aplikacji <i>Mój Pies</i>. Za jej pomocą możesz skorzystać z kilku przydatnych
+            funkcjonalności:
+        </b>
+        <br />1. W zakładce "Prawidłowa waga" dowiesz się, czy waga Twojego rozwijającego się pupila jest prawidłowa
+        <br />2. W zakładce "Opis rasy" będziesz mógł zapoznać się z najważniejszymi informacjami dotyczącymi psów danej rasy
+        <br />3. W zakładce "Dane statystyczne" znajdują się opracowane dane z ankiety dotyczącej psów
+        <br /><b>Jednak na początku wybierz rasę, która Cię interesuje z podanych poniżej:</b>
+    <p class="okno_1">
+
+    </p>
+
+    <div class="okno_3">
+        <button id="button_1" onclick="clickFunction()">Berneński Pies Pasterski</button>
+        <button id="button_2" onclick="clickFunction_2()">Labrador Retriever</button>
+        <button id="button_3" onclick="clickFunction_3()">Husky Syberyjski</button>
+    </div>
+
+    <div id="wynik"></div>
+
+    <p>
+        <div id="dvResult"></div>
+    </p>
+
+    
+    <script>
+
+        document.getElementById("btn").addEventListener("click", () => {
+            var mysql = require('mysql');
+
+            var connection = mysql.createConnection({
+                host: "localhost",
+                user: "root",
+                password: null,
+                database: "opis_rasy"
+            });
+
+            connection.connect((err) => {
+                if (err) {
+                    return console.log(err.stack);
+                }
+                console.log("Udalo sie uzyskac polaczenie");
+            });
+
+            connection.end(() => {
+                console.log("Zamknieto poprawnie");
+            });
+        })
+
+    function clickFunction() {
+                window.open('html/berni.html', 'Berni', "width=520, height=300")
+            }
+
+            function clickFunction_2() {
+                window.open('html/labrador.html', 'Labrador', "width=520, height=300")
+            }
+
+            function clickFunction_3() {
+                window.open('html/husky.html', 'Husky', "width=520, height=300")
+            }
+    </script>
+
+</body>
+
+</html>

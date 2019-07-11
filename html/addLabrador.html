@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Dane do uzupełnienia</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../Styles/addData.css">
+
+</head>
+<body>
+    <p class="napis">Uzupełnij wiek oraz wagę Twojego psa, następnie wybierz płeć</p><hr class="line" />
+    <div>
+        <form>
+            Wiek w miesiącach (3-19)<br />
+            <input type="number" id="wiek" min="3" max="19">
+            <br>
+            Waga w kg (1-100)<br>
+            <input type="number" id="waga" min="1" max="100">
+            <br>
+        </form>
+
+        <div class="przyciski">
+            <button class="plec_k" onclick="if_waga_k()">K</button>
+            <button class="plec_m" onclick="if_waga_m()">M</button>
+        </div>
+
+        <div>
+            <p id="demo" class="dog">Uzupełnij brakujące dane!</p>
+            <table>
+                <tr>
+                    <th>
+                        <button class="wykres_k" onclick="wykres_k()">Pokaż wykres płci żeńskiej</button>
+                    </th>
+                    <th>
+                        <button class="wykres_m" onclick="wykres_m()">Pokaż wykres płci męskiej</button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+
+        function blad() {
+            if (document.getElementById("wiek").value < 3 || document.getElementById("wiek").value > 19 || document.getElementById("waga").value < 1 || document.getElementById("waga").value > 100) {
+                window.open('errorWindow.html', 'Blad', "width=250, height=300");
+                document.getElementById("demo").innerHTML = "Wystąpił błąd!";
+            }
+            else null
+        }
+
+        function if_waga_k() {
+            if ((document.getElementById("wiek").value == 3 && document.getElementById("waga").value > 9 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 4 && document.getElementById("waga").value > 12 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 5 && document.getElementById("waga").value > 14.5 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 6 && document.getElementById("waga").value > 16.7 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 7 && document.getElementById("waga").value > 18.2 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 8 && document.getElementById("waga").value > 19.7 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 9 && document.getElementById("waga").value > 20.8 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 10 && document.getElementById("waga").value > 21.5 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 11 && document.getElementById("waga").value > 22 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 12 && document.getElementById("waga").value > 22.3 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 13 && document.getElementById("waga").value > 22.5 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 14 && document.getElementById("waga").value > 22.7 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 15 && document.getElementById("waga").value > 22.9 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 16 && document.getElementById("waga").value > 23.1 && document.getElementById("waga").value <= 100)
+            ) {
+                document.getElementById("demo").innerHTML = "Twój Labrador Retriever płci żeńskiej ma nadwagę!";
+
+            }
+            else if ((document.getElementById("wiek").value == 3 && (document.getElementById("waga").value >= 7 && document.getElementById("waga").value <= 9)) ||
+                (document.getElementById("wiek").value == 4 && (document.getElementById("waga").value >= 8.8 && document.getElementById("waga").value <= 12)) ||
+                (document.getElementById("wiek").value == 5 && (document.getElementById("waga").value >= 10.7 && document.getElementById("waga").value <= 14.5)) ||
+                (document.getElementById("wiek").value == 6 && (document.getElementById("waga").value >= 12.2 && document.getElementById("waga").value <= 16.7)) ||
+                (document.getElementById("wiek").value == 7 && (document.getElementById("waga").value >= 13.4 && document.getElementById("waga").value <= 18.2)) ||
+                (document.getElementById("wiek").value == 8 && (document.getElementById("waga").value >= 14.2 && document.getElementById("waga").value <= 19.7)) ||
+                (document.getElementById("wiek").value == 9 && (document.getElementById("waga").value >= 14.7 && document.getElementById("waga").value <= 20.8)) ||
+                (document.getElementById("wiek").value == 10 && (document.getElementById("waga").value >= 15 && document.getElementById("waga").value <= 21.5)) ||
+                (document.getElementById("wiek").value == 11 && (document.getElementById("waga").value >= 15.2 && document.getElementById("waga").value <= 22)) ||
+                (document.getElementById("wiek").value == 12 && (document.getElementById("waga").value >= 15.4 && document.getElementById("waga").value <= 22.3)) ||
+                (document.getElementById("wiek").value == 13 && (document.getElementById("waga").value >= 15.6 && document.getElementById("waga").value <= 22.5)) ||
+                (document.getElementById("wiek").value == 14 && (document.getElementById("waga").value >= 15.8 && document.getElementById("waga").value <= 22.7)) ||
+                (document.getElementById("wiek").value == 15 && (document.getElementById("waga").value >= 16 && document.getElementById("waga").value <= 22.9)) ||
+                (document.getElementById("wiek").value == 16 && (document.getElementById("waga").value >= 16.2 && document.getElementById("waga").value <= 23.1))
+            ) {
+                document.getElementById("demo").innerHTML = "Twój Labrador Retriever płci żeńskiej ma idealną wagę!";
+            }
+            else if ((document.getElementById("wiek").value == 3 && document.getElementById("waga").value < 7 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 4 && document.getElementById("waga").value < 8.8 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 5 && document.getElementById("waga").value < 10.7 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 6 && document.getElementById("waga").value < 12.2 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 7 && document.getElementById("waga").value < 13.4 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 8 && document.getElementById("waga").value < 14.2 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 9 && document.getElementById("waga").value < 14.7 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 10 && document.getElementById("waga").value < 15 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 11 && document.getElementById("waga").value < 15.2 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 12 && document.getElementById("waga").value < 15.4 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 13 && document.getElementById("waga").value < 15.6 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 14 && document.getElementById("waga").value < 15.8 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 15 && document.getElementById("waga").value < 16 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 16 && document.getElementById("waga").value < 16.2 && document.getElementById("waga").value >= 1)
+            ) {
+                document.getElementById("demo").innerHTML = "Twój Labrador Retriever płci żeńskiej ma niedowag�!";
+            }
+            else blad();
+        }
+
+        function if_waga_m() {
+            if ((document.getElementById("wiek").value == 3 && document.getElementById("waga").value > 17.5 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 4 && document.getElementById("waga").value > 22.5 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 5 && document.getElementById("waga").value > 27.3 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 6 && document.getElementById("waga").value > 31.5 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 7 && document.getElementById("waga").value > 35.2 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 8 && document.getElementById("waga").value > 38.8 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 9 && document.getElementById("waga").value > 41.7 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 10 && document.getElementById("waga").value > 43.8 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 11 && document.getElementById("waga").value > 45.3 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 12 && document.getElementById("waga").value > 46.4 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 13 && document.getElementById("waga").value > 47.4 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 14 && document.getElementById("waga").value > 48.2 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 15 && document.getElementById("waga").value > 48.8 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 16 && document.getElementById("waga").value > 49.3 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 17 && document.getElementById("waga").value > 49.6 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 18 && document.getElementById("waga").value > 49.8 && document.getElementById("waga").value <= 100) ||
+                (document.getElementById("wiek").value == 19 && document.getElementById("waga").value > 50 && document.getElementById("waga").value <= 100)
+            ) {
+                document.getElementById("demo").innerHTML = "Twój Labrador Retriever płci męskiej ma nadwagę!";
+            }
+            else if ((document.getElementById("wiek").value == 3 && (document.getElementById("waga").value >= 14 && document.getElementById("waga").value <= 17.5)) ||
+                (document.getElementById("wiek").value == 4 && (document.getElementById("waga").value >= 18 && document.getElementById("waga").value <= 22.5)) ||
+                (document.getElementById("wiek").value == 5 && (document.getElementById("waga").value >= 22.3 && document.getElementById("waga").value <= 27.3)) ||
+                (document.getElementById("wiek").value == 6 && (document.getElementById("waga").value >= 26 && document.getElementById("waga").value <= 31.5)) ||
+                (document.getElementById("wiek").value == 7 && (document.getElementById("waga").value >= 29.2 && document.getElementById("waga").value <= 35.2)) ||
+                (document.getElementById("wiek").value == 8 && (document.getElementById("waga").value >= 31.6 && document.getElementById("waga").value <= 38.8)) ||
+                (document.getElementById("wiek").value == 9 && (document.getElementById("waga").value >= 33.5 && document.getElementById("waga").value <= 41.7)) ||
+                (document.getElementById("wiek").value == 10 && (document.getElementById("waga").value >= 35 && document.getElementById("waga").value <= 43.8)) ||
+                (document.getElementById("wiek").value == 11 && (document.getElementById("waga").value >= 36 && document.getElementById("waga").value <= 45.3)) ||
+                (document.getElementById("wiek").value == 12 && (document.getElementById("waga").value >= 36.8 && document.getElementById("waga").value <= 46.4)) ||
+                (document.getElementById("wiek").value == 13 && (document.getElementById("waga").value >= 37.5 && document.getElementById("waga").value <= 47.4)) ||
+                (document.getElementById("wiek").value == 14 && (document.getElementById("waga").value >= 38 && document.getElementById("waga").value <= 48.2)) ||
+                (document.getElementById("wiek").value == 15 && (document.getElementById("waga").value >= 38.3 && document.getElementById("waga").value <= 48.8)) ||
+                (document.getElementById("wiek").value == 16 && (document.getElementById("waga").value >= 38.6 && document.getElementById("waga").value <= 49.3)) ||
+                (document.getElementById("wiek").value == 17 && (document.getElementById("waga").value >= 38.9 && document.getElementById("waga").value <= 49.6)) ||
+                (document.getElementById("wiek").value == 18 && (document.getElementById("waga").value >= 39.2 && document.getElementById("waga").value <= 49.8)) ||
+                (document.getElementById("wiek").value == 19 && (document.getElementById("waga").value >= 39.3 && document.getElementById("waga").value <= 50))
+            ) {
+                document.getElementById("demo").innerHTML = "Twój Labrador Retriever płci męskiej ma idealną wagę!";
+            }
+            else if ((document.getElementById("wiek").value == 3 && document.getElementById("waga").value < 14 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 4 && document.getElementById("waga").value < 18 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 5 && document.getElementById("waga").value < 22.3 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 6 && document.getElementById("waga").value < 26 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 7 && document.getElementById("waga").value < 29.2 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 8 && document.getElementById("waga").value < 31.6 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 9 && document.getElementById("waga").value < 33.5 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 10 && document.getElementById("waga").value < 35 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 11 && document.getElementById("waga").value < 36 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 12 && document.getElementById("waga").value < 36.8 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 13 && document.getElementById("waga").value < 37.5 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 14 && document.getElementById("waga").value < 38 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 15 && document.getElementById("waga").value < 38.3 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 16 && document.getElementById("waga").value < 38.6 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 17 && document.getElementById("waga").value < 38.9 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 18 && document.getElementById("waga").value < 39.2 && document.getElementById("waga").value >= 1) ||
+                (document.getElementById("wiek").value == 19 && document.getElementById("waga").value < 39.3 && document.getElementById("waga").value >= 1)
+            ) {
+                document.getElementById("demo").innerHTML = "Twój Labrador Retriever płci męskiej ma niedowagę!";
+            }
+            else blad();
+        }
+
+        function wykres_k() {
+            window.open('labradorWykresK.html', 'Wykres', "width = 600, height = 450");
+        }
+
+        function wykres_m() {
+            window.open('labradorWykresM.html', 'Wykres', "width = 600, height = 450");
+        }
+
+    </script>
+
+</body>
+
+</html>

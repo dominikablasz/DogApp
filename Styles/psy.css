@@ -1,0 +1,18 @@
+﻿button {
+    background: #e9a3a3;
+    border-color: #ff0000;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: dotted;
+    font-size: 14px;
+    font-style: oblique;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+﻿div.przyciski {
+    text-align: center;
+}
+
+div.pies {
+    text-align: center;
+}

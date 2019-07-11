@@ -1,0 +1,80 @@
+﻿﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Wykres</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../Styles/charts.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</head>
+<body>
+    <p class="tytul">
+        Wykres wagi od wieku Husky Syberyjskiego płci męskiej
+    </p>
+
+    <div class="wykres" style="width: 550px; height: 300px;">
+        <canvas id="chart_m_husky" width="550" height="300"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById("chart_m_husky").getContext('2d');
+        var chart_m_husky = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+                datasets: [
+                    {
+                        label: 'niższy przedział',
+                        data: [8, 10.4, 12.8, 14.8, 16.2, 17.4, 18.2, 18.7, 19, 19.2, 19.4, 19.6, 19.8, 20],
+                        borderColor: [
+                            'red',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'wyższy przedział',
+                        data: [10.3, 14, 16.9, 19.4, 21.5, 23.2, 24.4, 25.2, 25.8, 26.3, 26.6, 26.8, 27, 27.2],
+                        borderColor: [
+                            'green',
+                        ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    text: 'Wykres wagi od wieku'
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Waga w kg'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Wiek w miesiącach'
+                        }
+                    }]
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    },
+                    line: {
+                        fill: false
+                    }
+                },
+                legend: {
+                    lineWidth: 0
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

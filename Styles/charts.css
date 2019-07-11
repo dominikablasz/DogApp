@@ -1,0 +1,11 @@
+p.tytul {
+    font-size: larger;
+    color: #5e1149;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+div.wykres {
+    padding-left: 10px;
+}

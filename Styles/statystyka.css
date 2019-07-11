@@ -1,0 +1,89 @@
+p.napis_1 {
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #3c3597;
+    font-weight: bold;
+}
+
+p.sred {
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight:bold;
+}
+
+p.napis_2 {
+    font-weight: bold;
+    color: #680a49;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}
+
+form.formularz {
+    text-align: center;
+    font-weight: bold;
+    color: #670a0a;
+}
+
+div.kont_1 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+p.srednia_lab {
+    font-weight: bold;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+var name {
+    color: aqua;
+}
+
+input.form_imie {
+    text-align: center;
+    font-weight: bold;
+    border: 3px solid #680a49;
+}
+
+input.form_wiek {
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #00ff00;
+}
+
+input.form_waga {
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #00ff00;
+}
+
+td.wiersz {
+    border: 2px solid #3c3597;
+}
+
+button.przycisk {
+    border-color: #680a49;
+    background: #d0a9d3;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+canvas.wyk_spac {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+canvas.wyk_tol {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+th.opis {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}

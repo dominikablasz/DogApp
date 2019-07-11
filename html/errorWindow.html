@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Błąd</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../Styles/error.css">
+
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td><img src="../Images/error.png" width="60" height="50"></td>
+            <td id="blad_styl"><strong>WYSTĄPIŁ BŁĄD!</strong></td>
+        </tr>
+    </table>
+
+
+    <div class="napis">
+        Wpisana wartość parametrów psa przekracza dozwolony zakres, popraw błędy! </div>
+    <br />
+
+    <center><button id="button_error" onclick="zamknij()">OK</button></center>
+
+    <script>
+        function zamknij() {
+            this.close()
+        }
+    </script>
+
+</body>
+</html>
