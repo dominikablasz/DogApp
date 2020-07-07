@@ -9,7 +9,7 @@
   "author": "Dominika",
   "license": "MIT",
   "dependencies": {
-    "electron": "^5.0.0",
+    "electron": "^7.2.4",
     "requirejs": "^2.3.6"
   }
 }
